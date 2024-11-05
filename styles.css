@@ -1,6 +1,7 @@
 /* General body styling */
 body {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: Verdana, sans-serif;
+  font-size: 14px;
   background-color: #c6c5c5;
   display: flex;
   flex-direction: column;
@@ -28,7 +29,6 @@ table th {
   color: #ffffff;
   text-align: left;
   padding: 12px;
-  font-size: 16px;
 }
 
 /* Table data styling */
@@ -55,7 +55,7 @@ button {
 
 .add-btn {
   background-color: #007bff;
-  color: black;
+  color: rgb(255, 255, 255);
 }
 
 button:hover {
@@ -86,7 +86,7 @@ select {
 }
 
 @media (max-width: 599px) {
-  table {
+  #groceryTable {
     width: 90%;
     max-width: 580px;
     border-collapse: collapse;
@@ -95,5 +95,14 @@ select {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     overflow: hidden;
+  }
+
+  input[type="number"],
+  select {
+    padding: 6px;
+    width: 100%;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    font-size: 12px;
   }
 }
