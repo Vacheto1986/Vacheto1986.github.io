@@ -85,14 +85,15 @@ select {
   padding: 2px;
 }
 
-@media (max-width: 600px) {
-    body {
-        padding: 1em;
-    }
-
-    .container {
-    padding: 15px;
-    box-shadow: none;
-    border-radius: 0;
+@media (max-width: 599px) {
+  table {
+    width: 90%;
+    max-width: 580px;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    margin: 20px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
   }
 }
