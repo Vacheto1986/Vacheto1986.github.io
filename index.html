@@ -1,21 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Shopping List</title>
-</head>
-<body>
-    <div class="list">
-        <h2>Here is the list to choose from</h2>
-        <table>
-            <thead>
-                <th>Option</th>
-                <th>Quantity</th>
-                <th>Tick</th>
-            </thead>
-        </table>
-    </div>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Grocery Shopping List</title>
+  </head>
+  <body>
+    <h1>Списък за пазар</h1>
+
+    <table id="groceryTable">
+      <tr>
+        <th>Продукт</th>
+        <th>Количество</th>
+        <th>Спешност</th>
+        <th></th>
+      </tr>
+      <tr>
+        <td>
+          <select id="groceryDropdown">
+            <optgroup label="Заленчуци">
+              <option value="Домати">Домати</option>
+              <option value="Краставици">Краставици</option>
+              <option value="Ряпа">Ряпа</option>
+              <option value="Моркови">Моркови</option>
+              <option value="Чушки">Чушки</option>
+              <option value="Чесън">Чесън</option>
+              <option value="Лук">Лук</option>
+            </optgroup>
+
+            <optgroup label="Плодове">
+              <option value="Няма смисъл">Няма смисъл</option>
+            </optgroup>
+
+            <optgroup label="Напитки">
+              <option value="Сок">Сок</option>
+              <option value="Вода">Вода</option>
+              <option value="Газирано">Газирано</option>
+            </optgroup>
+
+            <optgroup label="Млечни">
+              <option value="Milk">Milk</option>
+              <option value="Cheese">Cheese</option>
+              <option value="Yogurt">Yogurt</option>
+              <option value="Butter">Butter</option>
+            </optgroup>
+
+            <optgroup label="Мезета">
+              <option value="Cheese">Cheese</option>
+              <option value="Yogurt">Yogurt</option>
+              <option value="Butter">Butter</option>
+            </optgroup>
+
+            <optgroup label="Сладки">
+              <option value="Cheese">Cheese</option>
+              <option value="Yogurt">Yogurt</option>
+              <option value="Butter">Butter</option>
+            </optgroup>
+          </select>
+        </td>
+        <td>
+          <input
+            type="number"
+            id="quantityInput"
+            min="1"
+            placeholder="Количество"
+          />
+        </td>
+        <td>
+          <select id="importanceDropdown">
+            <option value="Тц">Тц</option>
+            <option value="Да">Да</option>
+            <option value="Мега ДА">Мега ДА</option>
+          </select>
+        </td>
+        <td><button class="add-btn" onclick="addToGroceryList()">Add</button></td>
+      </tr>
+    </table>
+
+    <!-- List to display added items -->
+    <h2>Списъкът е готов</h2>
+    <ul id="groceryList"></ul>
+
+    <script>
+      // Function to add selected item to the grocery list
+      function addToGroceryList() {
+        const item = document.getElementById("groceryDropdown").value;
+        const quantity = document.getElementById("quantityInput").value;
+        const importance = document.getElementById("importanceDropdown").value;
+
+        if (item && quantity) {
+          // Create list item element
+          const listItem = document.createElement("li");
+          listItem.textContent = `${item} - ${quantity}, Спешно: ${importance} `;
+
+          // Delete button to remove item from the list
+          const deleteBtn = document.createElement("button");
+          deleteBtn.textContent = "Delete";
+          deleteBtn.onclick = function () {
+            listItem.remove();
+          };
+
+          listItem.appendChild(deleteBtn);
+          document.getElementById("groceryList").appendChild(listItem);
+
+          // Reset input fields
+          document.getElementById("groceryDropdown").value = "";
+          document.getElementById("quantityInput").value = "";
+          document.getElementById("importanceDropdown").value = "Low";
+        } else {
+          alert("Please select an item and enter a quantity.");
+        }
+      }
+    </script>
+  </body>
 </html>
