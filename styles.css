@@ -83,3 +83,11 @@ body {
     align-items: center;
     padding: 2px;
   }
+
+  @media (max-width: 600px) {
+    .container {
+        padding: 15px;
+        box-shadow: none;
+        border-radius: 0;
+      }
+  }
