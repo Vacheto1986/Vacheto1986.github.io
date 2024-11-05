@@ -87,7 +87,7 @@ select {
 
 @media (max-width: 600px) {
     body {
-        margin: 5px;
+        padding: 1em;
     }
 
     .container {
