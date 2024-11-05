@@ -86,13 +86,15 @@ select {
 }
 
 @media (max-width: 599px) {
-
+    body {
+        margin: 10px;
+    }
   #groceryTable {
     width: 80%;
     border-collapse: collapse;
     background-color: #ffffff;
     margin: 20px 20px;
-    padding: 20px 20px;
+    padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     overflow: hidden;
