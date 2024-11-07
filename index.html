@@ -19,6 +19,7 @@
       <tr>
         <td>
           <select id="groceryDropdown">
+            <option value="">Продукти</option>
             <optgroup label="Заленчуци">
               <option value="Домати">Домати</option>
               <option value="Краставици">Краставици</option>
@@ -30,7 +31,9 @@
             </optgroup>
 
             <optgroup label="Плодове">
-              <option value="Няма смисъл">Няма смисъл</option>
+              <option value="Няма смисъл от плодове">
+                Няма смисъл от плодове
+              </option>
             </optgroup>
 
             <optgroup label="Напитки">
@@ -55,7 +58,9 @@
             </optgroup>
 
             <optgroup label="Сладки">
-              <option value="Няма смисъл">Няма смисъл</option>
+              <option value="Няма смисъл какво сладко">
+                Няма смисъл какво сладко
+              </option>
             </optgroup>
           </select>
         </td>
@@ -69,17 +74,20 @@
         </td>
         <td>
           <select id="importanceDropdown">
+            <option value=""></option>
             <option value="Тц">Тц</option>
             <option value="Да">Да</option>
             <option value="Мега ДА">Мега ДА</option>
           </select>
         </td>
-        <td><button class="add-btn" onclick="addToGroceryList()">Add</button></td>
+        <td>
+          <button class="add-btn" onclick="addToGroceryList()">Add</button>
+        </td>
       </tr>
     </table>
 
     <!-- List to display added items -->
-    <h2>Списък:</h2>
+    <h3>Списък:</h3>
     <ul id="groceryList"></ul>
 
     <script>
@@ -92,7 +100,7 @@
         if (item && quantity) {
           // Create list item element
           const listItem = document.createElement("li");
-          listItem.textContent = `${item} - ${quantity}, Спешно: ${importance} `;
+          listItem.textContent = `${item} - ${quantity},  Спешно: ${importance} `;
 
           // Delete button to remove item from the list
           const deleteBtn = document.createElement("button");
